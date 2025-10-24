@@ -7,18 +7,17 @@ class MainCalendar extends StatelessWidget {
   final OnDaySelected onDaySelected;
   final DateTime selectedDate;
 
-  MainCalendar({
-    required this.onDaySelected,
-    required this.selectedDate
-  });
-
+  MainCalendar({required this.onDaySelected, required this.selectedDate});
 
   @override
   Widget build(BuildContext context) {
     return TableCalendar(
       locale: 'ko-kr',
       onDaySelected: onDaySelected,
-      selectedDayPredicate: (date)=>date.year == selectedDate.year && date.day == selectedDate.day && date.month == selectedDate.month,
+      selectedDayPredicate: (date) =>
+          date.year == selectedDate.year &&
+          date.day == selectedDate.day &&
+          date.month == selectedDate.month,
       firstDay: DateTime(1800, 1, 1),
       // 1 첫째 날
       lastDay: DateTime(3000, 1, 1),
@@ -41,7 +40,7 @@ class MainCalendar extends StatelessWidget {
           borderRadius: BorderRadius.circular(6.0),
           border: Border.all(color: PRIMARY_COLOR, width: 1.0),
         ),
-        defaultTextStyle:  TextStyle(
+        defaultTextStyle: TextStyle(
           fontWeight: FontWeight.w600,
           color: DARK_GREY_COLOR,
         ),
@@ -54,7 +53,6 @@ class MainCalendar extends StatelessWidget {
           color: PRIMARY_COLOR,
         ),
       ),
-
     );
   }
 }
